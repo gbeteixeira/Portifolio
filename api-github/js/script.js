@@ -12,6 +12,7 @@ window.onload = CapturaParametrosUrl();
 		    	
 			if (res[1] === undefined) {
 		        console.log('página sem parâmetros.');
+		        window.location.href = "./";
 		    }
 			
 		    if (res[1] !== undefined) {
