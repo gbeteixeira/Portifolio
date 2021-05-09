@@ -1,0 +1,84 @@
+body,html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #1b1d21;
+}
+
+.darkMode
+{
+    background-color: #1b1d21;
+    color: white;
+}
+.darkModeResults{
+    background-color: #222326;
+    color: white;
+}
+
+.linkRepositories{
+    text-decoration: none;
+    color: #bb86fc;
+}
+
+/*
+colors para light theme
+
+body = #d1def0
+results = #f7faff
+button search = #3246d3
+texts = #3246d3 or #3246d3
+
+*/
+
+.searchbar{
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 60px;
+    background-color: #bb86fc;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.resultbar{
+    margin-top: -15%;
+    margin: auto;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.inputsearch{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover > .inputsearch{
+    padding: 0 10px;
+    width: 470px;
+    caret-color:red;
+    transition: width 0.4s linear;
+}
+
+
+.searchbar:hover > .iconsearch{
+    background: white;
+    color: #343a40;
+}
+
+.iconsearch{
+	height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:#343a40;
+    text-decoration:none;
+}
