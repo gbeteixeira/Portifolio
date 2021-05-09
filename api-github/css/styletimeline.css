@@ -1,92 +1,38 @@
-body,html{
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #1b1d21;
-}
-
-.darkMode
-{
-    background-color: #1b1d21;
-    color: white;
-}
-.darkModeResults{
-    background-color: #222326;
-    color: white;
-}
-
-.linkRepositories{
-    text-decoration: none;
-    color: #bb86fc;
-}
-
-/*
-colors para light theme
-
-body = #d1def0
-results = #f7faff
-button search = #3246d3
-texts = #3246d3 or #3246d3
-
-*/
-
-.searchbar{
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 60px;
-    background-color: #bb86fc;
-    border-radius: 30px;
-    padding: 10px;
-}
-
-.resultbar{
-    margin-top: -15%;
-    margin: auto;
-    border-radius: 30px;
-    padding: 10px;
-}
-
-.inputsearch{
-    color: white;
-    border: 0;
-    outline: 0;
-    background: none;
-    width: 0;
-    caret-color:transparent;
-    line-height: 40px;
-    transition: width 0.4s linear;
-}
-
-.searchbar:hover > .inputsearch{
-    padding: 0 10px;
-    width: 470px;
-    caret-color:red;
-    transition: width 0.4s linear;
-}
-
-
-.searchbar:hover > .iconsearch{
-    background: white;
-    color: #343a40;
-}
-
-.iconsearch{
-	height: 40px;
-    width: 40px;
-    float: right;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color:#343a40;
-    text-decoration:none;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font: normal 16px/1.5 "Helvetica Neue", sans-serif;
+  background: #1b1d21;
+  color: #fff;
   overflow-x: hidden;
   padding-bottom: 50px;
+}
+
+
+/* INTRO SECTION
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.intro {
+  background: #222326;
+  padding: 100px 0;
+  color: #bb86fc;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
 }
 
 
@@ -94,7 +40,7 @@ body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .timeline ul {
-  background: #456990;
+  background: #1b1d21;
   padding: 50px 0;
 }
 
@@ -125,7 +71,7 @@ body {
   bottom: 0;
   width: 400px;
   padding: 15px;
-  background: #f45b69;
+  background: #222326;
 }
 
 .timeline ul li div::before {
@@ -144,7 +90,7 @@ body {
 .timeline ul li:nth-child(odd) div::before {
   left: -15px;
   border-width: 8px 16px 8px 0;
-  border-color: transparent #f45b69 transparent transparent;
+  border-color: transparent #222326 transparent transparent;
 }
 
 .timeline ul li:nth-child(even) div {
@@ -154,7 +100,7 @@ body {
 .timeline ul li:nth-child(even) div::before {
   right: -15px;
   border-width: 8px 0 8px 16px;
-  border-color: transparent transparent transparent #f45b69;
+  border-color: transparent transparent transparent #222326;
 }
 
 time {
@@ -162,6 +108,7 @@ time {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 8px;
+  color: #bb86fc;
 }
 
 
@@ -173,7 +120,7 @@ time {
 }
 
 .timeline ul li.in-view::after {
-  background: #f45b69;
+  background: #bb86fc;
 }
 
 .timeline ul li div {
@@ -223,7 +170,7 @@ time {
   .timeline ul li:nth-child(even) div::before {
     left: -15px;
     border-width: 8px 16px 8px 0;
-    border-color: transparent #f45b69 transparent transparent;
+    border-color: transparent #bb86fc transparent transparent;
   }
 }
 

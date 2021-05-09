@@ -1,4 +1,164 @@
 
+window.onload = CapturaParametrosUrl();
+
+		function CapturaParametrosUrl() {
+
+		    //captura a url da página
+		    var url = window.location.href; 
+		    console.log("URL CAPTURADA: \n\n" + url);
+			
+			//tenta localizar o ?
+		    var res = url.split('?'); 
+		    	
+			if (res[1] === undefined) {
+		        console.log('página sem parâmetros.');
+		    }
+			
+		    if (res[1] !== undefined) {
+				//tenta localizar os & (pode haver mais de 1)
+		        var parametros = res[1].split('&');
+		        console.log('Parametros encontrados:\n' + parametros);
+				
+				//qtd. de parâmetros que serão tratados pelo laço.
+				var qtdParametrosParaLer = 5; 
+				
+				//guarda o nome dos parâmetros e os valores e, vetores.
+				var parametroEncontrado = new Array(); 
+				var valorParametro = new Array();
+				
+				for (var cont = 0; cont<=qtdParametrosParaLer; cont++)
+				{
+					if (parametros[cont] !== undefined) 
+					{
+						captura = parametros[cont].split('=');				
+						
+						parametroEncontrado[cont] = captura[0];
+						valorParametro[cont] = captura[1];
+						gerarTimeline(captura[1]);
+						//document.getElementById('resultado').innerHTML += parametroEncontrado[cont] + '=' + valorParametro[cont] + '<br/>';
+					}
+				}
+		    }
+		}
+
+function gerarTimeline(username){
+
+	var username = username;
+
+	if (username == '') {
+		window.location.href = "./";
+		return
+	}
+
+	var notify = $.notify('<strong> </strong>', {
+	    type: 'success',
+	    allow_dismiss: true,
+	    showProgressbar: false
+	});
+
+	//const formData = new FormData();
+	//const searchField = document.querySelector('input[class="inputsearch"]');
+
+	const valorSearch = username
+
+	if (valorSearch == '') {
+		notify.update('type', 'danger');
+        notify.update('message', '<strong>Preencha o campo de pesquisa!</strong>. Tente novamente');
+        return
+	}
+	//console.log(valorSearch);
+			
+	fetch('https://api.github.com/users/'+valorSearch+'/repos?sort=created&direction=desc',{
+		method: 'GET',
+		//body: formData,
+	})
+	.then(response => response.json())
+	.then(result =>{
+
+		//verifica se o user é inválido
+		if (result['message'] == "Not Found") 
+		{
+			notify.update('type', 'danger');
+        	notify.update('message', '<strong>Usuário inválido</strong>. Tente novamente');
+        	return
+		}
+
+		//console.log('Success:', result);
+		notify.update('type', 'success');
+        notify.update('message', '<strong>Sucesso!</strong>. Carregando dados...');
+
+		//resutados
+		const resultados = result;
+
+		//console.log(resultados.length)
+		//console.log(resultados)
+
+		//timeline
+		var exibeTimeline = document.getElementById('timelineID');
+
+		var i;
+		for (i = 0; i < resultados.length ; i++){
+
+			//console.log('resultados: ', i);
+			//exibeTimeline.innerHTML += "<li><div><time>1934</time> At vero um</div></li>";
+
+			let data = new Date(resultados[i]['created_at']);
+			let dataAlt = new Date(resultados[i]['updated_at']);
+
+			$('#timelineID').append(JSON.stringify('<li><div><time>'+ data.getFullYear() +'</time> O repositório:  '+ resultados[i]['name'] +' foi criado em : '+  data.getDate() + '/' +  (data.getMonth() + 1)  + '/' +  data.getFullYear() +' as '
+
+				+ data.getHours() + ':' + data.getMinutes() + ':' + data.getSeconds() +' ultima alteração foi em: '
+
+				+  dataAlt.getDate() + '/' +  (dataAlt.getMonth() + 1)  + '/' +  dataAlt.getFullYear() +' as ' 
+
+				+ dataAlt.getHours() + ':' + dataAlt.getMinutes() + ':' + dataAlt.getSeconds() +'</div></li>'));
+
+		}
+
+		//$('body').append(JSON.stringify(result));
+
+		(function () {
+		  "use strict";
+
+		  // define variables
+		  var items = document.querySelectorAll(".timeline li");
+
+		  // check if an element is in viewport
+		  // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+		  function isElementInViewport(el) {
+		    var rect = el.getBoundingClientRect();
+		    return (
+		      rect.top >= 0 &&
+		      rect.left >= 0 &&
+		      rect.bottom <=
+		        (window.innerHeight || document.documentElement.clientHeight) &&
+		      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+		    );
+		  }
+
+		  function callbackFunc() {
+		    for (var i = 0; i < items.length; i++) {
+		      if (isElementInViewport(items[i])) {
+		        items[i].classList.add("in-view");
+		      }
+		    }
+		  }
+
+		  // listen for events
+		  window.addEventListener("load", callbackFunc);
+		  window.addEventListener("resize", callbackFunc);
+		  window.addEventListener("scroll", callbackFunc);
+		})();
+
+
+	})
+	.catch(error => {
+		 //console.error('Error: ', error);
+		 notify.update('type', 'danger');
+         notify.update('message', '<strong>Erro</strong>. Tente novamente');
+	});
+};
+
 function pesquisar(){
 
 	var notify = $.notify('<strong> </strong>', {
@@ -69,6 +229,7 @@ function pesquisar(){
         document.getElementById('nome').innerHTML = result['name'];
         document.getElementById('username').innerHTML = '@' + result['login'] + '<p>Bio: ' + result['bio'] + '</p>';
         document.getElementById('followers').innerHTML = 'Seguidores: ' + result['followers'] + ' - Seguindo: ' + result['following'];
+        document.getElementById('gerartimeline').href = 'timeline.html?username='+ result['login'] ;
 
 	})
 	.catch(error => {
