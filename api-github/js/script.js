@@ -51,7 +51,16 @@ function pesquisar(){
 	})
 	.then(response => response.json())
 	.then(result =>{
-		console.log('Success:', result);
+
+		//verifica se o user é inválido
+		if (result['message'] == "Not Found") 
+		{
+			notify.update('type', 'danger');
+        	notify.update('message', '<strong>Usuário inválido</strong>. Tente novamente');
+        	return
+		}
+
+		//console.log('Success:', result);
 		notify.update('type', 'success');
         notify.update('message', '<strong>Sucesso!</strong>. Carregando dados...');
         //dados 
@@ -63,8 +72,8 @@ function pesquisar(){
 
 	})
 	.catch(error => {
-		console.error('Error: ', error);
+		 //console.error('Error: ', error);
 		 notify.update('type', 'danger');
-         notify.update('message', '<strong>Usuario inválido</strong>. Tente novamente');
+         notify.update('message', '<strong>Erro</strong>. Tente novamente');
 	});
 };
