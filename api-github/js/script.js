@@ -188,10 +188,19 @@ function pesquisar(){
         document.getElementById('followers').innerHTML = 'Seguidores: ' + result['followers'] + ' - Seguindo: ' + result['following'];
         document.getElementById('gerartimeline').href = 'timeline.html?username='+ result['login'] ;
 
+        //stats
+        var urlStats = "https://github-readme-stats.vercel.app/api?username="+ valorSearch +"&show_icons=true&theme=dracula&include_all_commits=true&count_private=true";
+        document.getElementById('iframestats').src = urlStats ;
+
 	})
 	.catch(error => {
 		 //console.error('Error: ', error);
 		 notify.update('type', 'danger');
          notify.update('message', '<strong>Erro</strong>. Tente novamente');
 	});
+
+
+	//function para reotnar um iframe com os stats do repositorio
+	/* https://github-readme-stats.vercel.app/api?username=gbeteixeira&show_icons=true&theme=dracula&include_all_commits=true&count_private=true */
+
 };
