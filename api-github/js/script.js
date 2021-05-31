@@ -175,7 +175,7 @@ function pesquisar(){
 			notify.update('type', 'danger');
         	notify.update('message', '<strong>Usuário inválido</strong>. Tente novamente');
         	return
-		}
+		} 
 
 		//console.log('Success:', result);
 		notify.update('type', 'success');
@@ -186,22 +186,18 @@ function pesquisar(){
         document.getElementById('nome').innerHTML = result['name'];
         document.getElementById('username').innerHTML = '@' + result['login'] + '<p>Bio: ' + result['bio'] + '</p>';
         document.getElementById('followers').innerHTML = 'Seguidores: ' + result['followers'] + ' - Seguindo: ' + result['following'];
-
-        //stats
-        var urlStats = "https://github-readme-stats.vercel.app/api?username="+ valorSearch +"&show_icons=true&theme=dracula&include_all_commits=true&count_private=true";
-        document.getElementById('iframestats').src = urlStats ;
-
-        //https://github-readme-stats.vercel.app/api/top-langs/?username=gbeteixeira&layout=compact&langs_count=16&theme=dracula
-        var MostUsedLanguage = "https://github-readme-stats.vercel.app/api/top-langs/?username="+ valorSearch +"&layout=compact&langs_count=16&theme=dracula";
-        document.getElementById('iframemostLanguage').src = MostUsedLanguage ;
-
-<<<<<<< Updated upstream
-=======
-        //link timeline
         document.getElementById('gerartimeline').href = 'timeline.html?username='+ result['login'] ;
 
+        //stats
+        var urlStats = 'https://github-readme-stats.vercel.app/api?username='+ valorSearch +'&show_icons=true&theme=dracula&include_all_commits=true&count_private=true';
+        document.getElementById('iframestats').src = urlStats ;
 
->>>>>>> Stashed changes
+        ///https://github-readme-stats.vercel.app/api/top-langs/?username=gbeteixeira&layout=compact&langs_count=16&theme=dracula
+        var urlStatsMost = 'https://github-readme-stats.vercel.app/api/top-langs/?username='+ valorSearch +'&layout=compact&langs_count=16&theme=dracula';
+        document.getElementById('iframeMostUsed').src = urlStatsMost ;
+
+        console.log(urlStatsMost);
+
 	})
 	.catch(error => {
 		 //console.error('Error: ', error);
@@ -210,7 +206,7 @@ function pesquisar(){
 	});
 
 
-	//function para reotnar um iframe com os stats do repositorio
+	//function para reotnar um iframe com os stats do repositorio.
 	/* https://github-readme-stats.vercel.app/api?username=gbeteixeira&show_icons=true&theme=dracula&include_all_commits=true&count_private=true */
 
 };
