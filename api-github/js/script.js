@@ -193,8 +193,8 @@ function pesquisar(){
         document.getElementById('iframestats').src = urlStats ;
 
         ///https://github-readme-stats.vercel.app/api/top-langs/?username=gbeteixeira&layout=compact&langs_count=16&theme=dracula
-        var MostUsedLanguage = 'https://github-readme-stats.vercel.app/api/top-langs/?username='+ valorSearch +'&layout=compact&langs_count=16&theme=dracula';
-        document.getElementById('iframeMostUsed').src = MostUsedLanguage ;
+        var urlStatsMost = 'https://github-readme-stats.vercel.app/api/top-langs/?username='+ valorSearch +'&layout=compact&langs_count=16&theme=dracula';
+        document.getElementById('iframeMostUsed').src = urlStatsMost ;
 
 	})
 	.catch(error => {
