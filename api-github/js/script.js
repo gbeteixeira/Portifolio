@@ -186,7 +186,6 @@ function pesquisar(){
         document.getElementById('nome').innerHTML = result['name'];
         document.getElementById('username').innerHTML = '@' + result['login'] + '<p>Bio: ' + result['bio'] + '</p>';
         document.getElementById('followers').innerHTML = 'Seguidores: ' + result['followers'] + ' - Seguindo: ' + result['following'];
-        document.getElementById('gerartimeline').href = 'timeline.html?username='+ result['login'] ;
 
         //stats
         var urlStats = "https://github-readme-stats.vercel.app/api?username="+ valorSearch +"&show_icons=true&theme=dracula&include_all_commits=true&count_private=true";
@@ -196,6 +195,13 @@ function pesquisar(){
         var MostUsedLanguage = "https://github-readme-stats.vercel.app/api/top-langs/?username="+ valorSearch +"&layout=compact&langs_count=16&theme=dracula";
         document.getElementById('iframeMostUsed').src = MostUsedLanguage ;
 
+<<<<<<< Updated upstream
+=======
+        //link timeline
+        document.getElementById('gerartimeline').href = 'timeline.html?username='+ result['login'] ;
+
+
+>>>>>>> Stashed changes
 	})
 	.catch(error => {
 		 //console.error('Error: ', error);
