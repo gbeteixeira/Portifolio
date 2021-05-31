@@ -179,24 +179,26 @@ function pesquisar(){
 
 		//console.log('Success:', result);
 		notify.update('type', 'success');
-        notify.update('message', '<strong>Sucesso!</strong>. Carregando dados...');
-        //dados 
-        document.getElementById('result').style.display = '';
-        document.getElementById('imgUser').src = result['avatar_url'] ;
-        document.getElementById('nome').innerHTML = result['name'];
-        document.getElementById('username').innerHTML = '@' + result['login'] + '<p>Bio: ' + result['bio'] + '</p>';
-        document.getElementById('followers').innerHTML = 'Seguidores: ' + result['followers'] + ' - Seguindo: ' + result['following'];
-        document.getElementById('gerartimeline').href = 'timeline.html?username='+ result['login'] ;
+	        notify.update('message', '<strong>Sucesso!</strong>. Carregando dados...');
 
-        //stats
-        var urlStats = 'https://github-readme-stats.vercel.app/api?username='+ valorSearch +'&show_icons=true&theme=dracula&include_all_commits=true&count_private=true';
-        document.getElementById('iframestats').src = urlStats ;
 
-        ///https://github-readme-stats.vercel.app/api/top-langs/?username=gbeteixeira&layout=compact&langs_count=16&theme=dracula
-        var urlStatsMost = 'https://github-readme-stats.vercel.app/api/top-langs/?username='+ valorSearch +'&layout=compact&langs_count=16&theme=dracula';
-        document.getElementById('iframeMostUsed').src = urlStatsMost ;
+	        //stats
+	        var urlStats = 'https://github-readme-stats.vercel.app/api?username='+ valorSearch +'&show_icons=true&theme=dracula&include_all_commits=true&count_private=true';
+	        document.getElementById('iframestats').src = urlStats ;
 
-        console.log(urlStatsMost);
+	        ///https://github-readme-stats.vercel.app/api/top-langs/?username=gbeteixeira&layout=compact&langs_count=16&theme=dracula
+	        var urlStatsMost = 'https://github-readme-stats.vercel.app/api/top-langs/?username='+ valorSearch +'&layout=compact&langs_count=16&theme=dracula';
+	        document.getElementById('iframeMostUsed').src = urlStatsMost ;
+
+	        console.log(urlStatsMost);
+
+	        //dados 
+	        document.getElementById('result').style.display = '';
+	        document.getElementById('imgUser').src = result['avatar_url'] ;
+	        document.getElementById('nome').innerHTML = result['name'];
+	        document.getElementById('username').innerHTML = '@' + result['login'] + '<p>Bio: ' + result['bio'] + '</p>';
+	        document.getElementById('followers').innerHTML = 'Seguidores: ' + result['followers'] + ' - Seguindo: ' + result['following'];
+	        document.getElementById('gerartimeline').href = 'timeline.html?username='+ result['login'] ;
 
 	})
 	.catch(error => {
