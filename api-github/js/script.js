@@ -204,7 +204,7 @@ function pesquisar(){
 	});
 
 
-	//function para reotnar um iframe com os stats do repositorio
+	//function para reotnar um iframe com os stats do repositorio.
 	/* https://github-readme-stats.vercel.app/api?username=gbeteixeira&show_icons=true&theme=dracula&include_all_commits=true&count_private=true */
 
 };
