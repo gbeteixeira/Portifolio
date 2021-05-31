@@ -196,6 +196,8 @@ function pesquisar(){
         var urlStatsMost = 'https://github-readme-stats.vercel.app/api/top-langs/?username='+ valorSearch +'&layout=compact&langs_count=16&theme=dracula';
         document.getElementById('iframeMostUsed').src = urlStatsMost ;
 
+        console.log(urlStatsMost);
+
 	})
 	.catch(error => {
 		 //console.error('Error: ', error);
