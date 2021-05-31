@@ -189,11 +189,11 @@ function pesquisar(){
         document.getElementById('gerartimeline').href = 'timeline.html?username='+ result['login'] ;
 
         //stats
-        var urlStats = "https://github-readme-stats.vercel.app/api?username="+ valorSearch +"&show_icons=true&theme=dracula&include_all_commits=true&count_private=true";
+        var urlStats = 'https://github-readme-stats.vercel.app/api?username='+ valorSearch +'&show_icons=true&theme=dracula&include_all_commits=true&count_private=true';
         document.getElementById('iframestats').src = urlStats ;
 
         ///https://github-readme-stats.vercel.app/api/top-langs/?username=gbeteixeira&layout=compact&langs_count=16&theme=dracula
-        var MostUsedLanguage = "https://github-readme-stats.vercel.app/api/top-langs/?username="+ valorSearch +"&layout=compact&langs_count=16&theme=dracula";
+        var MostUsedLanguage = 'https://github-readme-stats.vercel.app/api/top-langs/?username='+ valorSearch +'&layout=compact&langs_count=16&theme=dracula';
         document.getElementById('iframeMostUsed').src = MostUsedLanguage ;
 
 	})
