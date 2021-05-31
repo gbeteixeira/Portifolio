@@ -175,7 +175,7 @@ function pesquisar(){
 			notify.update('type', 'danger');
         	notify.update('message', '<strong>Usuário inválido</strong>. Tente novamente');
         	return
-		}
+		} 
 
 		//console.log('Success:', result);
 		notify.update('type', 'success');
@@ -192,7 +192,7 @@ function pesquisar(){
         var urlStats = "https://github-readme-stats.vercel.app/api?username="+ valorSearch +"&show_icons=true&theme=dracula&include_all_commits=true&count_private=true";
         document.getElementById('iframestats').src = urlStats ;
 
-        //https://github-readme-stats.vercel.app/api/top-langs/?username=gbeteixeira&layout=compact&langs_count=16&theme=dracula
+        ///https://github-readme-stats.vercel.app/api/top-langs/?username=gbeteixeira&layout=compact&langs_count=16&theme=dracula
         var MostUsedLanguage = "https://github-readme-stats.vercel.app/api/top-langs/?username="+ valorSearch +"&layout=compact&langs_count=16&theme=dracula";
         document.getElementById('iframeMostUsed').src = MostUsedLanguage ;
 
